@@ -2,7 +2,7 @@ import { IUser } from "./user.model";
 import { UserSchema } from "../../Modules/user.schema";
 import express, { Request, Response } from 'express'
 
-export function createUser(req: Request, res: Response) {
+export async function createUser(req: Request, res: Response) {
     try {
         const user = new UserSchema<IUser>({
             username: req.body.username,
@@ -17,7 +17,7 @@ export function createUser(req: Request, res: Response) {
             return res.status(500).json("username field empty!");
         }
 
-        user.save();
+        await user.save();
         res.status(200).json(user)
 
     } catch (error) {
@@ -26,12 +26,13 @@ export function createUser(req: Request, res: Response) {
 
 }
 
-export function getUser(req: Request, res: Response) {
+export async function getUser(req: Request, res: Response) {
     try {
-        const users = UserSchema.find();
+        const users = await UserSchema.find();
         if (!users) {
             return res.status(400).json("Users not found")
         }
+
         res.json(users)
         
     } catch(err) {

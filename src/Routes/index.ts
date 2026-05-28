@@ -1,8 +1,8 @@
-import express, { Router } from "express";
+import express from "express";
 import { UserRouter } from "../Service/user/user.controller";
 
-const router = Router()
+const router = express.Router();
 
-router.use('user', UserRouter)
+router.use('/all-user', UserRouter);
 
 export {router}
