@@ -2,7 +2,7 @@ import { IUser } from "./user.model";
 import { UserSchema } from "../../Modules/user.schema";
 import express, { Request, Response } from 'express'
 
-export function CreateUser(req: Request, res: Response) {
+export function createUser(req: Request, res: Response) {
     try {
         const user = new UserSchema<IUser>({
             username: req.body.username,
@@ -24,4 +24,17 @@ export function CreateUser(req: Request, res: Response) {
         throw error;
     }
 
+}
+
+export function getUser(req: Request, res: Response) {
+    try {
+        const users = UserSchema.find();
+        if (!users) {
+            return res.status(400).json("Users not found")
+        }
+        res.json(users)
+        
+    } catch(err) {
+        throw err;
+    }
 }

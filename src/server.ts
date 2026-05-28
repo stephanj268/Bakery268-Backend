@@ -2,6 +2,7 @@ import express, { type Request, type Response } from 'express';
 import { database } from '../config/database';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import { router } from './Routes';
 
 const app = express();
 const PORT = 3000;
@@ -18,10 +19,7 @@ mongoose.connect(database).then(() => {
     console.log(err);
 });
 
-app.get('/', (req: Request, res: Response) => {
-    res.send('Server Running');
-
-});
+app.use('/', router)
 
 app.listen(PORT, () => {
     console.log('Server is running on port', PORT);
