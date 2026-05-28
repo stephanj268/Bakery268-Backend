@@ -19,10 +19,10 @@ mongoose.connect(database).then(() => {
     console.log(err);
 });
 
-app.use('/', ApiRoutes)
+// app.use('/', ApiRoutes)
 
 app.get('/', (req: Request, res: Response) => {
-    res.send("34wydufdytreqWDE");
+    res.send("CAPRISUN");
 })
 
 

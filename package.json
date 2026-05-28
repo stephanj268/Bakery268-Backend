@@ -13,10 +13,10 @@
   "license": "ISC",
   "author": "",
   "type": "commonjs",
-  "main": "./src/server.ts",
+  "main": "server.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --exec tsx ./src/server.ts"
+    "start": "nodemon --watch src/server.ts --exec \"tsx --no-cache src/server.ts\""
   },
   "dependencies": {
     "body-parser": "^2.2.2",
@@ -27,6 +27,8 @@
   "devDependencies": {
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
+    "nodemon": "^3.1.14",
+    "ts-node": "^10.9.2",
     "tsx": "^4.22.3"
   }
 }
