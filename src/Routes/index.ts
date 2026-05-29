@@ -1,8 +1,8 @@
 import express from "express";
-import { UserRouter } from "../Service/user/user.controller";
+import { UserRouter } from "../Service/product/product.controller";
 
 const router = express.Router();
 
-router.use('/all-user', UserRouter);
+router.use('/product', UserRouter);
 
 export {router}

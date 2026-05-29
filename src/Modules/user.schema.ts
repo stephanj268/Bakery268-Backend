@@ -1,18 +1,28 @@
 import mongoose, { model, Schema } from 'mongoose';
-import { IUser } from '../Service/user/user.model';
+import { IProduct } from '../Service/product/product.model';
 
-const schema = new mongoose.Schema<IUser>({
-    username: {
+const schema = new mongoose.Schema<IProduct>({
+    name: {
         type: String,
         required: true,
     },
 
-    password: {
+    type: {
         type: String,
         required: true,
     },
+
+    price: {
+        type: Number,
+        required: true,
+    },
+
+    availability: {
+        type: Boolean,
+        required: true
+    }
 
 
 })
 
-export const UserSchema = mongoose.model('user', schema);
+export const ProductSchema = mongoose.model('product', schema);

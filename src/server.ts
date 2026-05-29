@@ -19,11 +19,13 @@ mongoose.connect(database).then(() => {
     console.log(err);
 });
 
-// app.use('/', ApiRoutes)
 
-app.get('/', (req: Request, res: Response) => {
-    res.send("CAPRISUN");
-})
+
+app.get('/', async (req: Request, res: Response) => {
+    res.send("CAPRSUN");
+});
+
+app.use('/', ApiRoutes)
 
 
 app.listen(PORT, () => {
