@@ -17,6 +17,11 @@ const schema = new mongoose.Schema<IProduct>({
         required: true,
     },
 
+    description: {
+        type: String,
+        required: true
+    },
+
     availability: {
         type: Boolean,
         required: true

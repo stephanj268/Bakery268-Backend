@@ -9,6 +9,7 @@ export async function createProduct(req: Request, res: Response) {
             type: req.body.type,
             price: req.body.price,
             availability: req.body.availability,
+            description: req.body.description,
             icon: req.body.icon,
         })
 
